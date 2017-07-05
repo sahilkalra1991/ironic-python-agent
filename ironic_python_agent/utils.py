@@ -210,9 +210,10 @@ def get_agent_params():
 
         # If the node booted over virtual media, the parameters are passed
         # in a text file within the virtual media floppy.
-        if params.get('boot_method') == 'vmedia':
-            vmedia_params = _get_vmedia_params()
-            params.update(vmedia_params)
+        # if params.get('boot_method', 'vmedia') == 'vmedia':
+        # TODO: HotFix because ubuntu doesn't have this variable. Uncomment above line for non iLO driver
+        vmedia_params = _get_vmedia_params()
+        params.update(vmedia_params)
 
         # Cache the parameters so that it can be used later on.
         _set_cached_params(params)
